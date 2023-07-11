@@ -1,5 +1,8 @@
 #!/usr/bin/python3
+
+
 def print_last_digit(number):
-        last_d = abs(number) % 10
-            print(f"{last_d}", end="")
-                return last_d
+    unsigned_num = abs(number)
+    last_digit = unsigned_num % 10
+    print(f"{last_digit}", end="")
+    return (last_digit)
