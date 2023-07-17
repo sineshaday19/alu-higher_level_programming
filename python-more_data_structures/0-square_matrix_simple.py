@@ -1,6 +1,10 @@
 #!/usr/bin/python3
 
-def square_matrix_simple(matrix=[]):
+def square_matrix_simple(matrix=None):
+    # If the matrix parameter is not provided, use an empty list as default
+    if matrix is None:
+        matrix = []
+
     # Create a new matrix with the same size as the input matrix
     result = [[0 for _ in range(len(matrix[0]))] for _ in range(len(matrix))]
 
