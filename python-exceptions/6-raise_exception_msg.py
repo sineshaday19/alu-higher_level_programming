@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
 
-def raise_exception_msg(message="write anything"):
+def raise_exception_msg(message=""):
     if not message:
-        raise NameError("Caught a NameError: Empty message is not allowed")
+        raise NameError("")
     else:
         raise NameError(message)
