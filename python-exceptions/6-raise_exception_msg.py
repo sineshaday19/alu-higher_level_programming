@@ -2,7 +2,7 @@
 
 
 def raise_exception_msg(message=""):
-    class NameException(Exception):
-        pass
-
-    raise NameException(message)
+    if not message:
+        raise NameError("Empty message is not allowed.")
+    else:
+        raise NameError(message)
