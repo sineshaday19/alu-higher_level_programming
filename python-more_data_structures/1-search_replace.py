@@ -16,4 +16,3 @@ if __name__ == "__main__":
     new_list = search_replace(my_list, 2, 89)
     print(new_list)  # Output: [1, 89, 3, 4, 5, 4, 89, 1, 1, 4, 89]
     print(my_list)   # Output: [1, 2, 3, 4, 5, 4, 2, 1, 1, 4, 89]
-
