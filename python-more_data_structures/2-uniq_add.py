@@ -1,6 +1,15 @@
 #!/usr/bin/python3
 
-def uniq_add(my_list=[]):
+def uniq_add(my_list):
+    """
+    Returns the sum of unique integers in the input list.
+
+    Args:
+        my_list (list): The list of integers.
+
+    Returns:
+        int: The sum of unique integers in the list.
+    """
     # Create an empty set to store unique integers
     unique_integers = set()
 
@@ -12,4 +21,3 @@ def uniq_add(my_list=[]):
     result = sum(unique_integers)
 
     return result
-
