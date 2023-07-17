@@ -7,4 +7,3 @@ def common_elements(set_1, set_2):
         if element in set_2:
             common_elements_set.add(element)
     return common_elements_set
-
