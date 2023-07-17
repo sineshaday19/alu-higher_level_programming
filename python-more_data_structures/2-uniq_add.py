@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def uniq_add(my_list):
     """
     Returns the sum of unique integers in the input list.
