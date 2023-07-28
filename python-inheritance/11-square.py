@@ -19,7 +19,3 @@ class Square(Rectangle):
         '''
         return f"[Square] {self.__size}/{self.__size}"
 
-    def area(self):
-        '''Calculates the area of a Square object
-        '''
-        return self.__size ** 2
