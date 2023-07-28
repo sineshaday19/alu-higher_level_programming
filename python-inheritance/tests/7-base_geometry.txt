@@ -1,0 +1,120 @@
+Doctest checks 7-base_geometry for errors
+==========================================
+
+Definitions:
+	def area(self):
+	def integer_validator(self, name, value):
+
+
+Test Case: Checking for documentation
+-------------------------------------
+
+::
+	>>> base_geometry = __import__('7-base_geometry')
+	>>> len(base_geometry.__doc__) > 1
+	True
+	>>> BaseGeometry = base_geometry.BaseGeometry
+	>>> len(BaseGeometry.__doc__) > 1
+	True
+
+::
+
+Test Case: Checking for method documentations
+-----------------------------------------------
+
+::
+	>>> len(BaseGeometry.area.__doc__) > 1
+	True
+	>>> len(BaseGeometry.integer_validator.__doc__) > 1
+	True
+
+::
+
+Test Case: Checking integer validator
+-------------------------------------
+
+::
+	>>> base = BaseGeometry()
+	>>> base.integer_validator("Age", 20)
+
+::
+
+Test Case: Integer Validator checking against subinstance bool
+-----------------------------------------------------------
+
+::
+	>>> base.integer_validator("size", True)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+::
+
+Test Case: Integer Validator checking against float
+----------------------------------------------------
+
+::
+	>>> base.integer_validator("size", 2.0)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+::
+
+Test Case: Integer Validator checking against string
+----------------------------------------------------
+
+::
+        >>> base.integer_validator("size", "shobi")
+        Traceback (most recent call last):
+        TypeError: size must be an integer
+
+::
+
+Test Case: Integer Validator checking against negative integer
+----------------------------------------------------
+
+::
+        >>> base.integer_validator("size", -2)
+	Traceback (most recent call last):
+	ValueError: size must be greater than 0
+
+::
+
+Test Case: Integer Validator checking against zero
+----------------------------------------------------
+
+::
+        >>> base.integer_validator("size", 0)
+	Traceback (most recent call last):
+        ValueError: size must be greater than 0
+
+::
+
+Test Case: Only one argument supplied
+----------------------------------------------------
+
+::
+        >>> base.integer_validator("size")
+        Traceback (most recent call last):
+        TypeError: integer_validator() missing 1 required positional argument: 'value'
+
+::
+
+Test Case: No argument supplied
+----------------------------------------------------
+
+::
+        >>> base.integer_validator()
+        Traceback (most recent call last):
+        TypeError: integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+::
+
+Test Case: No argument supplied
+----------------------------------------------------
+
+::
+	>>> base.area()
+        Traceback (most recent call last):
+        Exception: area() is not implemented
+
+::
