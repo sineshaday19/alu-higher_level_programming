@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-'''Creates an empty class called BaseGeometry
+'''Defines inherits_from
 '''
 
 
-class BaseGeometry:
-    '''Class BaseGeometry
+def inherits_from(obj, a_class):
+    '''Checks if obj is an instance of a class that
+    inherits directly/indirectly from a_class
     '''
-    pass
+    return issubclass(type(obj), a_class) and type(obj) != a_class
