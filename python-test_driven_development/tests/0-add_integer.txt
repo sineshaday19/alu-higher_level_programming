@@ -1,0 +1,119 @@
+Test file for ``add_integer``function used to add two integers/floats
+
+Returns:
+	Integer sum of the two numbers
+===================================
+
+Definition:
+	def ``add_integer(a, b=98)``:
+
+Example: Test Case (Two negative numbers)
+-------------------------------
+
+::
+	>>> add_integer = __import__('0-add_integer').add_integer
+	>>> add_integer(-1, -1)
+	-2
+
+::
+
+Test Case: Integer and float
+-----------------------------
+
+::
+	>>> add_integer(3, 6.4)
+	9
+
+::
+
+Test Case: Float and Float
+---------------------------
+
+::
+	>>> add_integer(3.0, 4.0)
+	7
+
+::
+        >>> add_integer(-3.1, -4.2)
+        -7
+
+::
+
+Test Case: One integer input
+----------------------------
+
+::
+	>>> add_integer(2)
+	100
+
+::
+
+Test Case: Argument ``a`` as a string
+-------------------------------------
+
+::
+	>>> add_integer("test", 3)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+::
+
+Test Case: Argument ``b`` as a string
+-------------------------------------
+
+::
+	>>> add_integer(6, "test")
+	Traceback (most recent call last):
+	TypeError: b must be an integer
+
+::
+        >>> add_integer("hello", "test")
+        Traceback (most recent call last):
+        TypeError: a must be an integer
+
+::
+
+Test Case: Arguments as NaN
+-------------------------------------
+
+::
+        >>> add_integer(-6, float('nan'))
+	Traceback (most recent call last):
+	ValueError: cannot convert float NaN to integer
+
+::
+        >>> add_integer(float('nan'), 3)
+        Traceback (most recent call last):
+        ValueError: cannot convert float NaN to integer
+
+::
+
+Test Case: Argument ``a`` as None, and only argument
+-----------------------------------------------------
+
+::
+	>>> add_integer(None)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+::
+
+Test Case: Argument ``a`` as infinity
+-------------------------------------
+
+::
+	>>> add_integer(float('inf'))
+	Traceback (most recent call last):
+	OverflowError: cannot convert float infinity to integer
+
+::
+
+Test Case: No arguments entered
+---------------------------------
+
+::
+	>>> add_integer()
+	Traceback (most recent call last):
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+::
