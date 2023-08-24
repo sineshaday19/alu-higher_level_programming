@@ -88,8 +88,8 @@ class Base:
                 f_json = f.read()
         except FileNotFoundError:
             return []
-        obj_dict_list = cls.from_json_string(f_json)# mixing objects
-        return [cls.create(**value) for value in obj_dict_list] #mixing objects here
+        obj_dict_list = cls.from_json_string(f_json)
+        return [cls.create(**value) for value in obj_dict_list] 
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
