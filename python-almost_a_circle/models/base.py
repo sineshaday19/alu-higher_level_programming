@@ -89,7 +89,7 @@ class Base:
         except FileNotFoundError:
             return []
         obj_dict_list = cls.from_json_string(f_json)
-        return [cls.create(**value) for value in obj_dict_list] 
+        return [cls.create(**value) for value in obj_dict_list]
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
