@@ -11,10 +11,10 @@ class Base:
     __nb_objects = 0
 
     def __init__(self, id=None):
-        '''Initializes new base instance
+        '''Initializes a new base instance
 
         Args:
-           id (int): Used as identifier for subclasses incase of debugging
+            id (int): Used as an identifier for subclasses in case of debugging
         '''
         if id is None:
             self.__class__.__nb_objects += 1
@@ -23,28 +23,26 @@ class Base:
             self.id = id
 
     @staticmethod
-    def to_json_string(list_dictionaries: dict):
+    def to_json_string(list_dictionaries):
         '''Converts a list containing dictionaries to JSON
 
-
         Args:
-           list_dictionaries (list): List of dictionaries converted to JSON
+            list_dictionaries (list): List of dictionaries to be converted to JSON
         '''
-        if list_dictionaries is None or list_dictionaries == []:
+        if list_dictionaries is None or len(list_dictionaries) == 0:
             return "[]"
-        else:
-            return json.dumps(list_dictionaries)
+        return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        '''Converts square, rectangle objects to json and saves them in files
+        '''Converts square and rectangle objects to JSON and saves them in files
 
         Args:
-           list_objs (list): A list of Square of Rectangle objects
+            list_objs (list): A list of Square or Rectangle objects
         '''
         class_name = cls.__name__
         with open(f"{class_name}.json", 'w') as f:
-            if list_objs is None or list_objs == []:
+            if list_objs is None or len(list_objs) == 0:
                 f.write("[]")
             else:
                 dict_list = [value.to_dictionary() for value in list_objs]
@@ -53,10 +51,10 @@ class Base:
 
     @staticmethod
     def from_json_string(json_string):
-        '''Converts json string back into an object
+        '''Converts a JSON string back into a list of dictionaries
 
         Args:
-           json_string (str): JSON formatted string
+            json_string (str): JSON formatted string
         '''
         if json_string is None or len(json_string) == 0:
             return []
@@ -64,10 +62,10 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        '''Creates a new instance of Square, Rectangle based on dictionary
+        '''Creates a new instance of Square or Rectangle based on a dictionary
 
         Args:
-           dictionary (dict): A dictionary containing values to set to instance
+            dictionary (dict): A dictionary containing values to set on the instance
         '''
         if cls.__name__ == "Square":
             my_square = cls(1)
@@ -80,8 +78,8 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        '''Loads a Square or Rectangle object from a json file
-        if the file is not found an empty string is returned
+        '''Loads Square or Rectangle objects from a JSON file.
+        If the file is not found, an empty list is returned.
         '''
         try:
             with open(f"{cls.__name__}.json", 'r') as f:
@@ -93,15 +91,15 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        '''Stores rectangle/square objects to a .csv file
+        '''Stores Rectangle or Square objects to a .csv file
 
         Args:
-           list_objs (list): A list of Square/Rectangle objects.
+            list_objs (list): A list of Square or Rectangle objects.
         '''
         name = cls.__name__
         with open(f"{name}.csv", 'w') as csv_file:
             csv_writer = csv.writer(csv_file, delimiter=",")
-            if list_objs is None or list_objs == []:
+            if list_objs is None or len(list_objs) == 0:
                 csv_writer.writerow("")
             else:
                 for obj in list_objs:
@@ -114,7 +112,7 @@ class Base:
     @classmethod
     def load_from_file_csv(cls):
         '''Retrieves data from a .csv file and
-        returns a list of Square/Rectangle Objects
+        returns a list of Square or Rectangle objects
         '''
         result = []
         name = cls.__name__
@@ -129,3 +127,4 @@ class Base:
                                              height=int(row[2]), x=int(row[3]),
                                              y=int(row[4])))
         return result
+
